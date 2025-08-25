@@ -115,44 +115,70 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
      
      fecha_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP
      
- );
- 
- FLUSH PRIVILEGES;
- EXIT;
+     );
 
+     FLUSH PRIVILEGES;
+     
+     EXIT;
+ 
 
  Nota: La contraseña para el usuario lsi debe coincidir con la que está configurada en el archivo enviar_correo.php del proyecto.
+
  Parte 3: Despliegue de la Aplicación
+ 
  Copie la carpeta pcc del proyecto al directorio raíz del servidor web de Apache. La ubicación predeterminada es /var/www/html/.
+ 
  sudo cp -r /ruta/del/proyecto/pcc /var/www/html/
+ 
 
 
  Asigne los permisos correctos para que el servidor web (www-data) pueda acceder y ejecutar los archivos:
+ 
  sudo chown -R www-data:www-data /var/www/html/pcc
+ 
  sudo chmod -R 755 /var/www/html/pcc
+ 
 
 
  Modificar el archivo enviar_correo.php:
+ 
  Abra el archivo enviar_correo.php para cambiar el correo del destinatario.
+ 
  Vaya a la línea 109 del código.
+ 
  Reemplace 'experimentoiautn2@gmail.com' con el correo electrónico del destinatario final.
+ 
  // Destinatario del correo (A quién se le enviará el mensaje).
+ 
  $mail->addAddress('experimentoiautn2@gmail.com', 'Experimento UTN'); // La línea que debe cambiar.
+ 
 
 
  Importante: La línea 106 ($mail->setFrom(...)) debe tener el mismo correo que la línea 99 ($mail->Username = ...) para que el envío funcione correctamente con Gmail.
+ 
  Reinicie el servicio de Apache2 para aplicar los cambios:
+ 
  sudo systemctl restart apache2
+ 
 
 
  Parte 4: Verificación del Funcionamiento
+ 
  Abra un navegador web en el servidor y acceda a la siguiente URL:
+ 
  http://localhost/pcc/contacto.html
+ 
  Rellene el formulario de contacto con datos de prueba y haga clic en "Enviar".
+ 
  Verifique la funcionalidad:
- Correo Electrónico: Se debe enviar un correo electrónico con la información del formulario.
+ 
+ Correo Electrónico: Se debe enviar un correo electrónico con la información del formulario
+ .
  Base de Datos: Se debe insertar un nuevo registro en la tabla mensajes de la base de datos base_de_datos. Puede verificar esto iniciando sesión en MySQL y ejecutando la siguiente   consulta:
+ 
  SELECT * FROM base_de_datos.mensajes;
+ 
 
 
  Si todos estos pasos se completan con éxito, el proyecto cumplirá con los requisitos de la consigna.
+ 
