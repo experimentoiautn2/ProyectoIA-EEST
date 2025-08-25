@@ -14,67 +14,109 @@ Base de Datos: MySQL 8.42 o superior
 Parte 1: Verificación e Instalación de los Paquetes del Sistema
  Antes de proceder, verifique si los paquetes necesarios ya están instalados.
  Verificación de Paquetes Instalados:
+ 
  Para verificar la versión de Apache, use: apache2 -v
+ 
  Para verificar la versión de MySQL, use: mysql -V
+ 
  Para verificar la versión de PHP, use: php -v
+ 
  
  Si los paquetes no están instalados, continúe con los siguientes pasos para instalarlos. Si ya están instalados, omita esta sección y pase a la Parte 2.
  Actualizar el sistema:
+ 
  sudo apt update
+ 
  sudo apt upgrade -y
+ 
 
 
  Instalar Apache2:
+ 
  sudo apt install apache2 -y
+ 
 
 
  Instalar MySQL Server 8.0:
+ 
  Descargue el paquete de configuración del repositorio de MySQL:
+ 
  wget https://dev.mysql.com/get/mysql-apt-config_0.8.34-1_all.deb
+ 
 
 
  Instale el repositorio:
+ 
  sudo dpkg -i mysql-apt-config_0.8.34-1_all.deb
+ 
 
 
  Nota: Durante la instalación interactiva, asegúrese de seleccionar mysql-8.0 cuando se le pida la versión del servidor.
+
  Actualice el sistema de paquetes para que reconozca el nuevo repositorio:
+ 
  sudo apt update
+ 
 
 
  Instale MySQL Server:
+ 
  sudo apt install mysql-server -y
+ 
 
 
  Nota: Durante la instalación, establezca una contraseña segura para el usuario root de MySQL y seleccione Use Strong Password Encryption para el método de autenticación.
+ 
  Instalar PHP y los módulos necesarios:
+ 
  sudo apt install php libapache2-mod-php php-mysql php-mbstring php-gd php-curl php-json php-xml -y
+ 
 
 
  Reiniciar el servicio de Apache:
+ 
  sudo systemctl restart apache2
+ 
 
 
  Parte 2: Configuración de la Base de Datos
+ 
  Abra la terminal e inicie sesión en MySQL como usuario root con la contraseña que estableció.
+ 
  Iniciar Sesión en MySQL:
+ 
  sudo mysql -u root -p
+ 
 
 
  Crear la base de datos, el usuario y la tabla necesarios:
+ 
  Ejecute las siguientes sentencias SQL dentro del cliente de MySQL, una por una.
- CREATE DATABASE base_de_datos;
- USE base_de_datos;
+ 
+ CREATE DATABASE EEST-GEMINI;
+ 
+ USE EEST-GEMINI;
+ 
  CREATE USER 'lsi'@'localhost' IDENTIFIED BY 'UnaContraFuerte123!';
- GRANT ALL PRIVILEGES ON base_de_datos.* TO 'lsi'@'localhost';
+ 
+ GRANT ALL PRIVILEGES ON EEST-GEMINI.* TO 'lsi'@'localhost';
+ 
  CREATE TABLE mensajes (
+ 
      id INT AUTO_INCREMENT PRIMARY KEY,
+     
      nombre VARCHAR(255) NOT NULL,
+     
      email VARCHAR(255) NOT NULL,
+     
      asunto VARCHAR(255),
+     
      mensaje TEXT NOT NULL,
+     
      fecha_envio TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+     
  );
+ 
  FLUSH PRIVILEGES;
  EXIT;
 
