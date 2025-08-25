@@ -25,15 +25,15 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
  Si los paquetes no están instalados, continúe con los siguientes pasos para instalarlos. Si ya están instalados, omita esta sección y pase a la Parte 2.
  Actualizar el sistema:
  
- sudo apt update
+    sudo apt update
  
- sudo apt upgrade -y
+    sudo apt upgrade -y
  
 
 
  Instalar Apache2:
  
- sudo apt install apache2 -y
+    sudo apt install apache2 -y
  
 
 
@@ -41,13 +41,13 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
  
  Descargue el paquete de configuración del repositorio de MySQL:
  
- wget https://dev.mysql.com/get/mysql-apt-config_0.8.34-1_all.deb
+    wget https://dev.mysql.com/get/mysql-apt-config_0.8.34-1_all.deb
  
 
 
  Instale el repositorio:
  
- sudo dpkg -i mysql-apt-config_0.8.34-1_all.deb
+    sudo dpkg -i mysql-apt-config_0.8.34-1_all.deb
  
 
 
@@ -55,13 +55,13 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
 
  Actualice el sistema de paquetes para que reconozca el nuevo repositorio:
  
- sudo apt update
+    sudo apt update
  
 
 
  Instale MySQL Server:
  
- sudo apt install mysql-server -y
+    sudo apt install mysql-server -y
  
 
 
@@ -69,13 +69,13 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
  
  Instalar PHP y los módulos necesarios:
  
- sudo apt install php libapache2-mod-php php-mysql php-mbstring php-gd php-curl php-json php-xml -y
+    sudo apt install php libapache2-mod-php php-mysql php-mbstring php-gd php-curl php-json php-xml -y
  
 
 
  Reiniciar el servicio de Apache:
  
- sudo systemctl restart apache2
+    sudo systemctl restart apache2
  
 
 
@@ -85,7 +85,7 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
  
  Iniciar Sesión en MySQL:
  
- sudo mysql -u root -p
+    sudo mysql -u root -p
  
 
 
@@ -93,15 +93,15 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
  
  Ejecute las siguientes sentencias SQL dentro del cliente de MySQL, una por una.
  
- CREATE DATABASE EEST-GEMINI;
+    CREATE DATABASE EEST-GEMINI;
  
- USE EEST-GEMINI;
+    USE EEST-GEMINI;
  
- CREATE USER 'lsi'@'localhost' IDENTIFIED BY 'UnaContraFuerte123!';
+    CREATE USER 'EEST-GEM'@'localhost' IDENTIFIED BY 'UnaContraFuerte123!';
  
- GRANT ALL PRIVILEGES ON EEST-GEMINI.* TO 'lsi'@'localhost';
+    GRANT ALL PRIVILEGES ON EEST-GEMINI.* TO 'EEST-GEM'@'localhost';
  
- CREATE TABLE mensajes (
+     CREATE TABLE mensajes (
  
      id INT AUTO_INCREMENT PRIMARY KEY,
      
@@ -128,15 +128,15 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
  
  Copie la carpeta pcc del proyecto al directorio raíz del servidor web de Apache. La ubicación predeterminada es /var/www/html/.
  
- sudo cp -r /ruta/del/proyecto/pcc /var/www/html/
+    sudo cp -r /ruta/del/proyecto/pcc /var/www/html/
  
 
 
  Asigne los permisos correctos para que el servidor web (www-data) pueda acceder y ejecutar los archivos:
  
- sudo chown -R www-data:www-data /var/www/html/pcc
+    sudo chown -R www-data:www-data /var/www/html/pcc
  
- sudo chmod -R 755 /var/www/html/pcc
+    sudo chmod -R 755 /var/www/html/pcc
  
 
 
@@ -158,7 +158,7 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
  
  Reinicie el servicio de Apache2 para aplicar los cambios:
  
- sudo systemctl restart apache2
+    sudo systemctl restart apache2
  
 
 
@@ -176,7 +176,7 @@ Parte 1: Verificación e Instalación de los Paquetes del Sistema
  .
  Base de Datos: Se debe insertar un nuevo registro en la tabla mensajes de la base de datos base_de_datos. Puede verificar esto iniciando sesión en MySQL y ejecutando la siguiente   consulta:
  
- SELECT * FROM base_de_datos.mensajes;
+    SELECT * FROM base_de_datos.mensajes;
  
 
 
