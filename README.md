@@ -1,30 +1,36 @@
 -INSTRUCTIVO
 
 Instrucciones para la Configuración del Servidor y Prueba del Formulario
+
 Este documento detalla los pasos necesarios para configurar un servidor Ubuntu 18.04.6 LTS y ejecutar la aplicación de formulario de contacto.
 Requisitos del Sistema
+
 Sistema Operativo: Ubuntu 18.04.6 LTS
+
 Servidor Web: Apache 2.4.29
+
 Base de Datos: MySQL 8.42 o superior
+
 Parte 1: Verificación e Instalación de los Paquetes del Sistema
-Antes de proceder, verifique si los paquetes necesarios ya están instalados.
-Verificación de Paquetes Instalados:
-Para verificar la versión de Apache, use: apache2 -v
-Para verificar la versión de MySQL, use: mysql -V
-Para verificar la versión de PHP, use: php -v
+ Antes de proceder, verifique si los paquetes necesarios ya están instalados.
+ Verificación de Paquetes Instalados:
+ Para verificar la versión de Apache, use: apache2 -v
+ Para verificar la versión de MySQL, use: mysql -V
+ Para verificar la versión de PHP, use: php -v
+ 
 Si los paquetes no están instalados, continúe con los siguientes pasos para instalarlos. Si ya están instalados, omita esta sección y pase a la Parte 2.
-Actualizar el sistema:
-sudo apt update
-sudo apt upgrade -y
+ Actualizar el sistema:
+ sudo apt update
+ sudo apt upgrade -y
 
 
-Instalar Apache2:
-sudo apt install apache2 -y
+ Instalar Apache2:
+ sudo apt install apache2 -y
 
 
-Instalar MySQL Server 8.0:
-Descargue el paquete de configuración del repositorio de MySQL:
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.34-1_all.deb
+ Instalar MySQL Server 8.0:
+ Descargue el paquete de configuración del repositorio de MySQL:
+ wget https://dev.mysql.com/get/mysql-apt-config_0.8.34-1_all.deb
 
 
 Instale el repositorio:
