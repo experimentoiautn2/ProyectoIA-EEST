@@ -1,4 +1,5 @@
 INSTRUCTIVO
+
 Instrucciones para la Configuración del Servidor y Prueba del Formulario.
 Este documento detalla los pasos necesarios para configurar un servidor Ubuntu 18.04.6 LTS y ejecutar la aplicación de formulario de contacto.
 Requisitos del Sistema
