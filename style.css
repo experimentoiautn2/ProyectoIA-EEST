@@ -1,0 +1,140 @@
+/* --- Estilos base (Mobile-First) - Con imagen de fondo y gamma violeta --- */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('humo.fondo.jpg'); /* Ruta de la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #1a0033; /* Color de fondo de respaldo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #f0f0ff; /* Texto general más claro */
+}
+
+.container {
+    background-color: rgba(26, 0, 51, 0.85); /* Violeta oscuro semi-transparente */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    width: 100%;
+    max-width: 550px;
+    box-sizing: border-box;
+    border: 1px solid rgba(138, 43, 226, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+h1 {
+    color: #cc99ff;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 2.2em;
+    text-shadow: 0 0 10px rgba(204, 153, 255, 0.5);
+}
+
+p {
+    color: #e6ccff;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #dda0dd;
+    font-weight: bold;
+    font-size: 0.95em;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #6a0dad;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    color: #f0f0ff;
+    background-color: rgba(40, 0, 80, 0.7);
+}
+
+input:focus,
+textarea:focus {
+    border-color: #b000b0;
+    outline: none;
+    box-shadow: 0 0 8px rgba(176, 0, 176, 0.5);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #9932cc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #8a2be2;
+    transform: translateY(-2px);
+}
+
+/* --- Media Queries para tablets y escritorios pequeños (desde 600px de ancho) --- */
+@media (min-width: 600px) {
+    .container {
+        padding: 35px;
+    }
+
+    h1 {
+        font-size: 2.6em;
+    }
+
+    p {
+        font-size: 1.1em;
+    }
+
+    .btn-submit {
+        padding: 18px;
+        font-size: 1.2em;
+    }
+}
+
+/* --- Media Queries para escritorios grandes (desde 900px de ancho) --- */
+@media (min-width: 900px) {
+    .container {
+        padding: 50px;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    p {
+        font-size: 1.15em;
+    }
+
+    .btn-submit {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
