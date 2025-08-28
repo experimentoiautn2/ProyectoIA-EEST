@@ -46,16 +46,6 @@ Ejecute el script:
     ./mysql-setup.sh
 Cuando se le solicite, ingrese la contraseña de root de MySQL que estableció durante la instalación del servidor.
 
-Parte 3:
-
-El archivo usuario-contraseña ya se encuentra en el repositorio.
-
-Importante: Modifique este archivo para configurar sus propias credenciales de MySQL y el correo electrónico donde recibirá los mensajes del formulario.
-
-    DB_USER="EEST-GEM"
-    DB_PASS="UnaContraFuerte123!"
-    RECIPIENT_EMAIL="tu_email@ejemplo.com"
-
 Nota: El script de configuración de la base de datos leerá estos valores automáticamente.
 
     $mail->addAddress('experimentoiautn2@gmail.com', 'Experimento UTN'); // La línea que debe cambiar.
