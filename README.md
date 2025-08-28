@@ -44,12 +44,9 @@ En su repositorio, ejecute el script mysql-setup.sh para crear automáticamente 
 Ejecute el script:
 
     ./mysql-setup.sh
+    
 Cuando se le solicite, ingrese la contraseña de root de MySQL que estableció durante la instalación del servidor.
 
-Nota: El script de configuración de la base de datos leerá estos valores automáticamente.
-
-    $mail->addAddress('experimentoiautn2@gmail.com', 'Experimento UTN'); // La línea que debe cambiar.
-Importante: La línea 106 ($mail->setFrom(...)) debe tener el mismo correo que la línea 99 ($mail->Username = ...) para que el envío funcione correctamente con Gmail.
 Reinicie el servicio de Apache2 para aplicar los cambios:
 
     sudo systemctl restart apache2
