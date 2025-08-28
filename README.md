@@ -1,23 +1,34 @@
 INSTRUCTIVO
 
 Instrucciones para la Configuración del Servidor y Prueba del Formulario
+
 Este documento detalla los pasos necesarios para configurar un servidor Ubuntu 18.04.6 LTS y ejecutar la aplicación de formulario de contacto.
+
 Requisitos del Sistema
+
 Sistema Operativo: Ubuntu 18.04.6 LTS
+
 Servidor Web: Apache 2.4.29
+
 Base de Datos: MySQL 8.42 o superior
+
 Parte 1: 
+
 Instalación Automatizada de los Paquetes del Sistema
+
 Para simplificar el proceso, se ha proporcionado un script de inicialización llamado inicializar.sh que automatiza la instalación de todos los paquetes necesarios.
-Clonar el repositorio de GitHub en su máquina local. 
+
+Clonar el repositorio de GitHub en su máquina local.
+
 Por ejemplo:
 
             git clone https://github.com/usuario/ProyectoIA-EEST.git
 Ejecutar el script de inicialización:
-Abra una terminal y navegue a la carpeta del repositorio.
-Convierta el script en ejecutable:
+
+Abra una terminal y navegue a la carpeta del repositorio. Convierta el script en ejecutable:
 
     chmod +x inicializar.sh
+    
 Ejecute el script:./inicializar.sh
 El script instalará Apache, MySQL, PHP y sus módulos. También moverá los archivos de tu proyecto a la carpeta del servidor web (/var/www/html/).Parte 2: Configuración de la Base de DatosVerificar el archivo de credenciales:
 
