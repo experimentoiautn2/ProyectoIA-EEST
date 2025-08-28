@@ -20,6 +20,7 @@ Parte 2: Configuración de la Base de DatosAbra la terminal e inicie sesión en 
 Iniciar Sesión en MySQL:sudo mysql -u root -p
 Crear la base de datos, el usuario y la tabla necesarios:En su repositorio, ejecute el script mysql-setup.sh para crear automáticamente la base de datos y la tabla.chmod +x mysql-setup.sh
 ./mysql-setup.sh
+
 Parte 3: Despliegue y Configuración de la AplicaciónEl script de inicialización ya ha copiado la carpeta del proyecto a la ubicación del servidor web y ha asignado los permisos correctos.
 Modificar el archivo enviar_correo.php:
 Abra el archivo enviar_correo.php para cambiar el correo del destinatario.
@@ -31,6 +32,7 @@ $mail->addAddress('experimentoiautn2@gmail.com', 'Experimento UTN');
 // La línea que debe cambiar.
 Importante: La línea 106 ($mail->setFrom(...)) debe tener el mismo correo que la línea 99 ($mail->Username = ...) para que el envío funcione correctamente con Gmail.
 Reinicie el servicio de Apache2 para aplicar los cambios:sudo systemctl restart apache2
+
 Parte 4: Verificación del FuncionamientoAbra un navegador web en el servidor y acceda a la siguiente URL:http://localhost/ProyectoIA-EEST/contacto.html
 Rellene el formulario de contacto con datos de prueba y haga clic en "Enviar".
 Verifique la funcionalidad:Correo Electrónico: Se debe enviar un correo electrónico con la información del formulario.Base de Datos: Se debe insertar un nuevo registro en la tabla mensajes de la base de datos. Puede verificar esto iniciando sesión en MySQL y ejecutando la siguiente consulta:SELECT * FROM `EEST-GEMINI`.mensajes;
