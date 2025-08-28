@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Envíanos tus preguntas o comentarios y te responderemos a la brevedad.</h1>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="asunto">Asunto:</label>
+                <input type="text" id="asunto" name="asunto" required>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+            </div>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío tradicional del formulario
+
+            const formData = new FormData(this); // 'this' se refiere al formulario
+
+            // Usa la ruta absoluta desde la raíz del servidor web (htdocs)
+            // Esto asegura que el navegador encuentre 'enviar_correo.php' dentro de la carpeta 'pcc'
+            fetch('/pcc/enviar_correo.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // Verificar si la respuesta es OK (status 200-299)
+                if (!response.ok) {
+                    // Si no es OK, arrojar un error que será capturado por .catch()
+                    // Si el servidor envía un JSON de error, intentamos parsearlo
+                    return response.json().then(err => { throw err; });
+                }
+                // Si la respuesta es OK, parsear el JSON
+                return response.json();
+            })
+            .then(data => {
+                // Manejar la respuesta JSON del servidor
+                if (data.success) {
+                    alert(data.message); // Muestra el mensaje de éxito del servidor
+                    document.getElementById('contactForm').reset(); // Limpia el formulario
+                } else {
+                    // Muestra el mensaje de error del servidor
+                    // Cambiado 'data.error' por 'data.message' y 'data.detail' por 'data.details'
+                    let errorMessage = data.message;
+                    if (data.details) { // Tu PHP envía 'details', no 'detail'
+                        errorMessage += "\nDetalles técnicos: " + data.details;
+                    }
+                    alert(errorMessage);
+                }
+            })
+            .catch(error => {
+                // Manejar errores de red o errores arrojados desde el primer .then()
+                console.error('Error en fetch:', error); // Mejorar el log para depuración
+
+                // Ajustado para coincidir con la estructura de error de tu PHP: {success: false, message: "...", details: "..."}
+                if (error && typeof error === 'object' && error.success === false) {
+                    let displayMessage = error.message;
+                    if (error.details) {
+                        displayMessage += "\nDetalles técnicos: " + error.details;
+                    }
+                    alert("Error al enviar el formulario:\n" + displayMessage);
+                } else {
+                    // Si es un error genérico de red o no es un JSON válido
+                    alert("Hubo un problema de conexión o el servidor no respondió correctamente. Inténtalo de nuevo más tarde.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
