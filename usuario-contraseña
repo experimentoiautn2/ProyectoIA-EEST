@@ -1,6 +1,0 @@
-# Este archivo contiene el nombre de usuario y la contraseña para la base de datos MySQL,
-# asi como la direccion de correo electronico para recibir los mensajes del formulario.
-
-DB_USER="EEST-GEM"
-DB_PASS="UnaContraFuerte123!"
-RECIPIENT_EMAIL="tu_email@ejemplo.com"
