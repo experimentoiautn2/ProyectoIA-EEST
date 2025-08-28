@@ -50,14 +50,24 @@ Cuando se le solicite, ingrese la contraseña de root de MySQL que estableció d
 Reinicie el servicio de Apache2 para aplicar los cambios:
 
     sudo systemctl restart apache2
+    
 Parte 4: 
+
 Verificación del Funcionamiento
+
 Abra un navegador web en el servidor y acceda a la siguiente URL:
+
 http://localhost/ProyectoIA-EEST/contacto.html
+
 Rellene el formulario de contacto con datos de prueba y haga clic en "Enviar".
+
 Verifique la funcionalidad:
+
 Correo Electrónico: Se debe enviar un correo electrónico con la información del formulario.
-Base de Datos: Se debe insertar un nuevo registro en la tabla mensajes de la base de datos. Puede verificar esto iniciando sesión en MySQL y ejecutando la siguiente consulta:
+
+Base de Datos: 
+
+Se debe insertar un nuevo registro en la tabla mensajes de la base de datos. Puede verificar esto iniciando sesión en MySQL y ejecutando la siguiente consulta:
 
     SELECT * FROM `EEST-GEMINI`.mensajes;
 Si todos estos pasos se completan con éxito, el proyecto cumplirá con los requisitos de la consigna.
