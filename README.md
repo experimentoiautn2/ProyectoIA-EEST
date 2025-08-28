@@ -36,11 +36,18 @@ Ejecute el script:
 Cuando se le solicite, ingrese la contraseña de root de MySQL que estableció durante la instalación del servidor.
 
 Parte 3:
+
 Despliegue y Configuración de la Aplicación
+
 El script de inicialización ya ha copiado la carpeta del proyecto a la ubicación del servidor web y ha asignado los permisos correctos.
+
 Modificar el archivo enviar_correo.php:
+
 Abra el archivo enviar_correo.php para cambiar el correo del destinatario.
-La ruta del archivo es: /var/www/html/ProyectoIA-EEST/enviar_correo.phpVaya a la línea 109 del código.Reemplace 'experimentoiautn2@gmail.com' con el correo electrónico del destinatario final.// Destinatario del correo (A quién se le enviará el mensaje).
+
+La ruta del archivo es: /var/www/html/ProyectoIA-EEST/enviar_correo.phpVaya a la línea 109 del código.
+
+Reemplace 'experimentoiautn2@gmail.com' con el correo electrónico del destinatario final.// Destinatario del correo (A quién se le enviará el mensaje).
 
     $mail->addAddress('experimentoiautn2@gmail.com', 'Experimento UTN'); // La línea que debe cambiar.
 Importante: La línea 106 ($mail->setFrom(...)) debe tener el mismo correo que la línea 99 ($mail->Username = ...) para que el envío funcione correctamente con Gmail.
