@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Este script automatiza la creacion de la base de datos, el usuario y la tabla.
+# Este script automatiza la creacion de la base de datos, el usuario y la tabla,
+# y tambien configura el correo electronico en el archivo PHP.
 
 # Cargar las variables del archivo de credenciales
 if [ -f "usuario-contraseña" ]; then
@@ -12,6 +13,7 @@ fi
 
 # Mensaje para el usuario
 echo "Este script creara la base de datos 'EEST-GEMINI' y el usuario '$DB_USER'."
+echo "Tambien configurara el correo de recepcion en el archivo 'enviar_correo.php' con la direccion '$RECIPIENT_EMAIL'."
 read -p "¿Deseas continuar? (s/n): " -n 1 -r
 echo
 if [[ ! $REPLY =~ ^[Ss]$ ]]
@@ -45,5 +47,10 @@ sudo mysql -u root -p < $SQL_FILE
 # Remueve el archivo temporal
 rm $SQL_FILE
 
-echo "Configuracion de la base de datos completada."
+# --- Seccion para configurar el correo del destinatario ---
+echo "Configurando correo de recepcion en enviar_correo.php..."
+# El siguiente comando reemplaza el correo en la linea 109 del archivo PHP
+sed -i "s|mail->addAddress('experimentoiautn2@gmail.com', 'Experimento UTN');|mail->addAddress('$RECIPIENT_EMAIL', 'Experimento UTN');|" enviar_correo.php
+
+echo "Configuracion de la base de datos y correo completada."
 echo "Puedes iniciar sesion en MySQL y verificar la creacion de la base de datos."
