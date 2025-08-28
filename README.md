@@ -36,6 +36,7 @@ Ejecute el script:
 Cuando se le solicite, ingrese la contraseña de root de MySQL que estableció durante la instalación del servidor.
 
 Parte 3:
+
 El archivo usuario-contraseña ya se encuentra en el repositorio.
 
 Importante: Modifique este archivo para configurar sus propias credenciales de MySQL y el correo electrónico donde recibirá los mensajes del formulario.
