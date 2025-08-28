@@ -7,6 +7,7 @@ Requisitos del Sistema
 Sistema Operativo: Ubuntu 18.04.6 LTS
 Servidor Web: Apache 2.4.29
 Base de Datos: MySQL 8.42 o superior
+
 Parte 1: Instalación Automatizada de los Paquetes del SistemaPara simplificar el proceso, se ha proporcionado un script de inicialización llamado inicializar.sh que automatiza la instalación de todos los paquetes necesarios.
 Clonar el repositorio de GitHub en su máquina local. Por ejemplo:git clone https://github.com/usuario/ProyectoIA-EEST.git
 Ejecutar el script de inicialización:Abra una terminal y navegue a la carpeta del repositorio.
