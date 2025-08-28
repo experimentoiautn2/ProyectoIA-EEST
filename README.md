@@ -36,18 +36,15 @@ Ejecute el script:
 Cuando se le solicite, ingrese la contraseña de root de MySQL que estableció durante la instalación del servidor.
 
 Parte 3:
+El archivo usuario-contraseña ya se encuentra en el repositorio.
 
-Despliegue y Configuración de la Aplicación
+Importante: Modifique este archivo para configurar sus propias credenciales de MySQL y el correo electrónico donde recibirá los mensajes del formulario.
 
-El script de inicialización ya ha copiado la carpeta del proyecto a la ubicación del servidor web y ha asignado los permisos correctos.
+    DB_USER="EEST-GEM"
+    DB_PASS="UnaContraFuerte123!"
+    RECIPIENT_EMAIL="tu_email@ejemplo.com"
 
-Modificar el archivo enviar_correo.php:
-
-Abra el archivo enviar_correo.php para cambiar el correo del destinatario.
-
-La ruta del archivo es: /var/www/html/ProyectoIA-EEST/enviar_correo.phpVaya a la línea 109 del código.
-
-Reemplace 'experimentoiautn2@gmail.com' con el correo electrónico del destinatario final.// Destinatario del correo (A quién se le enviará el mensaje).
+Nota: El script de configuración de la base de datos leerá estos valores automáticamente.
 
     $mail->addAddress('experimentoiautn2@gmail.com', 'Experimento UTN'); // La línea que debe cambiar.
 Importante: La línea 106 ($mail->setFrom(...)) debe tener el mismo correo que la línea 99 ($mail->Username = ...) para que el envío funcione correctamente con Gmail.
